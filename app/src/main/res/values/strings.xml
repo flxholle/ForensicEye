@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">ForensicEye</string>
+    <string name="auto_run">Auto Run</string>
     <string name="image">Image</string>
     <string name="eye">EYE</string>
     <string name="forensic">FORENSIC</string>

@@ -3,6 +3,7 @@ package com.flxholle.forensiceye
 import android.annotation.SuppressLint
 import android.content.ClipData
 import android.content.ClipboardManager
+import android.content.Context
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.net.Uri
@@ -192,6 +193,8 @@ class MainActivity : ComponentActivity() {
 
                         // Set up the title bar with the app icon
                         TitleBar(
+                            text1 = stringResource(R.string.forensic),
+                            text2 = stringResource(R.string.eye),
                             appIcon = packageManager.getApplicationIcon(packageName)
                                 .toBitmap(config = Bitmap.Config.ARGB_8888).asImageBitmap()
                         )
@@ -371,7 +374,7 @@ class MainActivity : ComponentActivity() {
 
     /**
      * Composable function to display the UI for a data source.
-     * @param context The context of the MainActivity.
+     * @param context The context of the activity.
      * @param dataSource The data source to display.
      * @param name The name of the data source.
      * @param modifier The modifier to be applied to the layout.
@@ -380,7 +383,7 @@ class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalPermissionsApi::class)
     @Composable
     fun DataSourceUI(
-        context: MainActivity,
+        context: Context,
         dataSource: DataSource,
         name: String,
         modifier: Modifier = Modifier
