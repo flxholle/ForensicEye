@@ -67,6 +67,7 @@ import com.flxholle.forensiceye.data.sources.SMSDataSource
 import com.flxholle.forensiceye.data.sources.SettingsDataSource
 import com.flxholle.forensiceye.data.sources.StorageStatsDataSource
 import com.flxholle.forensiceye.data.sources.TelephonyDataSource
+import com.flxholle.forensiceye.data.sources.UsageStatsDataSource
 import com.flxholle.forensiceye.data.sources.VoiceMailDataSource
 import com.flxholle.forensiceye.data.sources.WifiNetworksDataSource
 import com.flxholle.forensiceye.ui.ActionIcon
@@ -171,6 +172,7 @@ class MainActivity : ComponentActivity() {
             SMSDataSource(context),
             StorageStatsDataSource(context),
             TelephonyDataSource(context),
+            UsageStatsDataSource(context),
             VoiceMailDataSource(context),
             WifiNetworksDataSource(context)
         )

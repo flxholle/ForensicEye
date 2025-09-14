@@ -131,6 +131,8 @@ Link: https://github.com/flxholle/ForensicEye](https://github.com/flxholle/Foren
 * [Aldrich Font](https://fonts.google.com/specimen/Aldrich) under the [SIL Open Font License](https://openfontlicense.org/)
 * [Shizuku](https://github.com/RikkaApps/Shizuku) under the [Apache License 2.0](https://github.com/RikkaApps/Shizuku/blob/master/LICENSE)
 * [ACRA](https://github.com/ACRA/acra) under the [Apache License 2.0](https://github.com/ACRA/acra/blob/master/LICENSE)
+* [UsageDirect](https://codeberg.org/fynngodau/usageDirect) under
+  the [GNU General Public License v3.0 or later](https://codeberg.org/fynngodau/usageDirect/src/branch/main/LICENSE)
 * [AndroidX](https://developer.android.com/jetpack/androidx)
 * [Kotlin](https://kotlinlang.org/)
 * [Gradle](https://gradle.org/)
@@ -138,6 +140,8 @@ Link: https://github.com/flxholle/ForensicEye](https://github.com/flxholle/Foren
 <div align="right">(<a href="#top">back to top</a>)</div>
 
 ## License
-Distributed under the Apache License 2.0. See `LICENSE.txt` for more information.
+
+Distributed under the GNU General Public License v3.0 or later (GPL-3.0-or-later). See `LICENSE.txt`
+for more information.
 
 <div align="right">(<a href="#top">back to top</a>)</div>
