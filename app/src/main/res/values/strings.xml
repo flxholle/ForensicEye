@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">ForensicEye</string>
+    <string name="image">Image</string>
+    <string name="eye">EYE</string>
+    <string name="forensic">FORENSIC</string>
+    <string name="by_me">by Felix Hollederer</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="unsupported">Unsupported</string>
+    <string name="this_action_is_not_supported_on_this_device">This action is not supported on this device</string>
+    <string name="can_start">Can start</string>
+    <string name="permission_needed">Permissions</string>
+    <string name="success">Success</string>
+    <string name="failed">Failed</string>
+    <string name="data_directory">Data directory</string>
+    <string name="open_data_directory">Open data directory</string>
+    <string name="open">Open</string>
+    <string name="copy_data_directory">Copy data directory</string>
+    <string name="copy">Copy</string>
+    <string name="delete_data_directory">Clear data directory</string>
+    <string name="delete">Clear</string>
+    <string name="data_directory_cleared">Data directory cleared</string>
+    <string name="data_directory_not_found">Data directory not found</string>
+    <string name="permission_needs_adb">Permission needs ADB</string>
+    <string name="some_permissions_can_only_be_granted_using_adb_however_they_might_be_optional_to_grant_them_please_execute_the_following_command">Some permissions can only be granted using ADB. However, they might be optional. To grant them please execute the following command:</string>
+    <string name="command_copied_to_clipboard">Command copied to clipboard</string>
+    <string name="copy_to_clipboard">Copy to Clipboard</string>
+    <string name="adb_command">ADB Command</string>
+    <string name="thank_you_msg">A big thanks to the chair of IT Security Infrastructures at the Friedrich-Alexander-Universität Erlangen-Nürnberg and to Julian Geus for the provided support.\n\nFurthermore, thanks a lot to the state office for IT-Security (LSI) for the provided working environment and Lukas Rothe for the provided support.</string>
+    <string name="query_all_permissions">Query all permissions</string>
+    <string name="run_all">Run all</string>
+    <string name="grant_all_permissions_using_shizuku_experimental">Grant all permissions using Shizuku (experimental)</string>
+</resources>
