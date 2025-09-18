@@ -54,6 +54,6 @@ while true; do
 done
 
 echo "Auto Run finished. Pulling results to local machine..."
-adb pull /storage/emulated/0/Android/data/com.flxholle.forensiceye/files ./forensic_eye_results
+adb pull /storage/emulated/0/Android/data/com.flxholle.forensiceye/files ./ForensicEyeData
 
-echo "Done. Results are saved in the 'forensic_eye_results' directory."
+echo "Done. Results are saved in the 'ForensicEyeData' directory."

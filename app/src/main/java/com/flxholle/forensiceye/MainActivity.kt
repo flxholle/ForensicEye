@@ -14,7 +14,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -461,6 +460,26 @@ class MainActivity : ComponentActivity() {
                 }
 
                 STATE.PERMISSIONS -> {
+                    // Toast to display missing permissions
+                    val missingPermissions = dataSource.getPermissions().filter {
+                        !(it.isGranted(context) || it.isOptional)
+                    }
+                    if (missingPermissions.isNotEmpty()) {
+                        val missingPermissionsString = missingPermissions.joinToString("\n") {
+                            "- ${it.name} ${if (it.isSpecial) "(special)" else if (it.isADB) "(adb)" else if (it.isRuntime) "(runtime)" else ""} ${if (it.isOptional) "(optional)" else ""}"
+                        }
+                        val formattedString = context.getString(
+                            R.string.missing_permissions,
+                            missingPermissionsString
+                        )
+                        Log.d("MissingPermissions", formattedString)
+                        Toast.makeText(
+                            context,
+                            formattedString,
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+
                     // Runtime permissions can be handled by JetpackCompose itself, but this destroys the abstraction
                     permissionStates.launchMultiplePermissionRequest()
 
@@ -530,23 +549,16 @@ class MainActivity : ComponentActivity() {
             when (state.value) {
                 STATE.DISABLED, STATE.UNINIT -> {
                     StatusColumn(
-                        iconId = R.drawable.baseline_remove_circle_24,
+                        iconId = R.drawable.outline_remove_circle_outline_24,
                         tint = MaterialTheme.colorScheme.inversePrimary,
                         text = stringResource(R.string.unsupported),
-                        modifier = Modifier.clickable {
-                            Toast.makeText(
-                                context,
-                                getString(R.string.this_action_is_not_supported_on_this_device),
-                                Toast.LENGTH_LONG
-                            ).show()
-                        },
                         background = MaterialTheme.colorScheme.inverseSurface
                     )
                 }
 
                 STATE.START -> {
                     StatusColumn(
-                        iconId = R.drawable.baseline_play_circle_filled_24,
+                        iconId = R.drawable.outline_check_circle_outline_24,
                         tint = MaterialTheme.colorScheme.primary,
                         text = stringResource(R.string.can_start)
                     )
@@ -554,7 +566,7 @@ class MainActivity : ComponentActivity() {
 
                 STATE.PERMISSIONS -> {
                     StatusColumn(
-                        iconId = R.drawable.baseline_error_24,
+                        iconId = R.drawable.outline_error_24,
                         tint = MaterialTheme.colorScheme.secondary,
                         text = stringResource(R.string.permission_needed)
                     )
@@ -605,40 +617,39 @@ class MainActivity : ComponentActivity() {
                     style = MaterialTheme.typography.labelSmall
                 )
             }
-            ActionIcon(
-                R.drawable.baseline_file_copy_24,
-                stringResource(R.string.copy_data_directory),
-                stringResource(R.string.copy),
-                modifier = Modifier
-                    .padding(start = 12.dp)
-                    .clickable {
-                        openDocumentTreeLauncher.launch(null)
-                    }
-            )
-            ActionIcon(
-                R.drawable.baseline_delete_forever_24,
-                stringResource(R.string.delete_data_directory),
-                stringResource(R.string.delete),
-                modifier = Modifier
-                    .padding(start = 12.dp)
-                    .clickable {
-                        val dir = File(dataDirectory)
-                        if (dir.exists() && dir.isDirectory) {
-                            dir.deleteRecursively()
-                            Toast.makeText(
-                                context,
-                                getString(R.string.data_directory_cleared), Toast.LENGTH_SHORT
-                            )
-                                .show()
-                        } else {
-                            Toast.makeText(
-                                context,
-                                getString(R.string.data_directory_not_found), Toast.LENGTH_SHORT
-                            )
-                                .show()
-                        }
-                    }
-            )
+            OutlinedButton(
+                { openDocumentTreeLauncher.launch(null) },
+                Modifier.padding(start = 12.dp)
+            ) {
+                ActionIcon(
+                    R.drawable.baseline_file_copy_24,
+                    stringResource(R.string.copy_data_directory),
+                    stringResource(R.string.copy),
+                )
+            }
+            OutlinedButton({
+                val dir = File(dataDirectory)
+                if (dir.exists() && dir.isDirectory) {
+                    dir.deleteRecursively()
+                    Toast.makeText(
+                        context,
+                        getString(R.string.data_directory_cleared), Toast.LENGTH_SHORT
+                    )
+                        .show()
+                } else {
+                    Toast.makeText(
+                        context,
+                        getString(R.string.data_directory_not_found), Toast.LENGTH_SHORT
+                    )
+                        .show()
+                }
+            }, Modifier.padding(start = 12.dp)) {
+                ActionIcon(
+                    R.drawable.baseline_delete_forever_24,
+                    stringResource(R.string.delete_data_directory),
+                    stringResource(R.string.delete),
+                )
+            }
         }
     }
 

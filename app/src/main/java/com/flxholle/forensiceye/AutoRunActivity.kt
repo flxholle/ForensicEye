@@ -5,11 +5,9 @@ import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -287,23 +285,16 @@ class AutoRunActivity : ComponentActivity() {
             when (state) {
                 STATE.DISABLED, STATE.UNINIT -> {
                     StatusColumn(
-                        iconId = R.drawable.baseline_remove_circle_24,
+                        iconId = R.drawable.outline_remove_circle_outline_24,
                         tint = MaterialTheme.colorScheme.inversePrimary,
                         text = "",
-                        modifier = Modifier.clickable {
-                            Toast.makeText(
-                                context,
-                                getString(R.string.this_action_is_not_supported_on_this_device),
-                                Toast.LENGTH_LONG
-                            ).show()
-                        },
                         background = MaterialTheme.colorScheme.inverseSurface
                     )
                 }
 
                 STATE.START -> {
                     StatusColumn(
-                        iconId = R.drawable.baseline_play_circle_filled_24,
+                        iconId = R.drawable.outline_check_circle_outline_24,
                         tint = MaterialTheme.colorScheme.primary,
                         text = ""
                     )
@@ -311,7 +302,7 @@ class AutoRunActivity : ComponentActivity() {
 
                 STATE.PERMISSIONS -> {
                     StatusColumn(
-                        iconId = R.drawable.baseline_error_24,
+                        iconId = R.drawable.outline_error_24,
                         tint = MaterialTheme.colorScheme.secondary,
                         text = ""
                     )
