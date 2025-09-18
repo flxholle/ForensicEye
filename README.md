@@ -21,6 +21,9 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
+    <ul>
+        <li><a href="#auto-run-from-pc>Auto-Run from PC</a></li>
+    </ul>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -122,6 +125,7 @@ collection. After data collection is complete the script pulls the exported data
 - [ ] Shizuku integration to access system only APIs
 - [ ] Implement device owner to bypass restrictions
 - [ ] Add more data sources (e.g., third-party apps) via Acessibility Services
+- [ ] Encrypt the extracted data before storing them in the app internal directory
 
 <div align="right">(<a href="#top">back to top</a>)</div>
 
@@ -130,7 +134,7 @@ collection. After data collection is complete the script pulls the exported data
 Felix Hollederer - [@flxholle](https://flxholle.gitlab.io/) - flxholle@posteo.com
 
 Project
-Link: https://github.com/flxholle/ForensicEye](https://github.com/flxholle/ForensicEye)
+Link: [https://github.com/flxholle/ForensicEye](https://github.com/flxholle/ForensicEye)
 
 <div align="right">(<a href="#top">back to top</a>)</div>
 
