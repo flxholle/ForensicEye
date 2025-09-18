@@ -126,6 +126,10 @@ collection. After data collection is complete the script pulls the exported data
 - [ ] Implement device owner to bypass restrictions
 - [ ] Add more data sources (e.g., third-party apps) via Acessibility Services
 - [ ] Encrypt the extracted data before storing them in the app internal directory
+- [ ] Compatibility of the data format with other tools, like [AndroidQF](https://github.com/mvt-project/androidqf)
+- [ ] Multi user and work profile support
+- [ ] Introduction screen on first app launch
+- [ ] Automatic upload to virus total or check with known IoCs
 
 <div align="right">(<a href="#top">back to top</a>)</div>
 
