@@ -110,9 +110,10 @@ To get a local copy up and running follow these simple steps.
 
 ## Roadmap
 
-- [ ] Set as default SMS or phone app
-- [ ] Shizuku integration
-- [ ] Implement device owner
+- [ ] Set as default SMS or phone app to access BlockedNumbers
+- [ ] Shizuku integration to access system only APIs
+- [ ] Implement device owner to bypass restrictions
+- [ ] Add more data sources (e.g., third-party apps) via Acessibility Services
 
 <div align="right">(<a href="#top">back to top</a>)</div>
 

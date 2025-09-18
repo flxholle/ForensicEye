@@ -461,6 +461,26 @@ class MainActivity : ComponentActivity() {
                 }
 
                 STATE.PERMISSIONS -> {
+                    // Toast to display missing permissions
+                    val missingPermissions = dataSource.getPermissions().filter {
+                        !(it.isGranted(context) || it.isOptional)
+                    }
+                    if (missingPermissions.isNotEmpty()) {
+                        val missingPermissionsString = missingPermissions.joinToString("\n") {
+                            "- ${it.name} ${if (it.isSpecial) "(special)" else if (it.isADB) "(adb)" else if (it.isRuntime) "(runtime)" else ""} ${if (it.isOptional) "(optional)" else ""}"
+                        }
+                        val formattedString = context.getString(
+                            R.string.missing_permissions,
+                            missingPermissionsString
+                        )
+                        Log.d("MissingPermissions", formattedString)
+                        Toast.makeText(
+                            context,
+                            formattedString,
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+
                     // Runtime permissions can be handled by JetpackCompose itself, but this destroys the abstraction
                     permissionStates.launchMultiplePermissionRequest()
 
