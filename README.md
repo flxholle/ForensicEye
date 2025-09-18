@@ -1,6 +1,3 @@
-[#top]
-
-<br />
 <div align="center">
   <a href="https://github.com/flxholle/ForensicEye">
     <img src="app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" alt="Logo" width="80" height="80"> </a>
@@ -18,16 +15,9 @@
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
-        <li><a href="#built-with">Built With</a></li>
         <li><a href="#features">Features</a></li>
         <li><a href="#limitations">Limitations</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
@@ -41,8 +31,12 @@
 ## About The Project
 
 <div align="center">
-<img src="UI-Screenshot.png" alt="Screenshot"  width="300">
+<img src="Screenshots/UI-Screenshot.png" alt="Screenshot"  width="300">
 </div>
+
+<a href="https://github.com/flxholle/ForensicEye/releases/latest">
+<img src="Screenshots/Get It On GitHub.png" alt="Get It On GitHub" width="200">
+</a>
 
 
 ForensicEye is a tool for non-root forensic data acquisition on Android devices. Unlike traditional
@@ -60,8 +54,10 @@ data extraction by non-expert users without the need for additional hardware.
     - Calls
     - Calendars
     - Health data
-    - Usage statistics
+  - Many more...
 - **Modular Architecture**: Supports extensibility and maintainability.
+- **Auto-Run from PC**: Ability to be launched automatically using a script for streamlined data
+  collection.
 
 ### Limitations
 
@@ -73,40 +69,38 @@ data extraction by non-expert users without the need for additional hardware.
 
 ### Built With
 
-* [![Kotlin](Kotlin-Badge.svg)](https://kotlinlang.org/)
-* [![Jetpack Compose](Jetpack%20Compose-Badge.svg)](https://developer.android.com/jetpack/compose)
-* [![Android Studio](Android%20Studio-Badge.svg)](https://developer.android.com/studio)
+* [![Kotlin](Screenshots/Kotlin-Badge.svg)](https://kotlinlang.org/)
+* [![Jetpack Compose](Screenshots/Jetpack%20Compose-Badge.svg)](https://developer.android.com/jetpack/compose)
+* [![Android Studio](Screenshots/Android%20Studio-Badge.svg)](https://developer.android.com/studio)
 
 
 <div align="right">(<a href="#top">back to top</a>)</div>
 
-## Getting Started
-
-To get a local copy up and running follow these simple steps.
-
-### Prerequisites
-
-* [Android Studio](https://developer.android.com/studio)
-* Android device or emulator (integrated in Android Studio)
-
-### Installation
-
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/flxholle/ForensicEye
-   ```
-2. Open the project in Android Studio.
-3. Build and run the project on your Android device.
-
-<div align="right">(<a href="#top">back to top</a>)</div>
 
 ## Usage
 
-1. Launch the ForensicEye app on your Android device.
-2. Follow the on-screen instructions to grant necessary permissions.
-3. Use the provided buttons to extract and view data.
+1. Download and Install the latest APK from
+   the [releases page](https://github.com/flxholle/ForensicEye/releases/latest) or use the
+   `auto_run.sh` script.
+2. Open the app and grant the necessary permissions, either by clicking "Grant all permissions" or
+   clicking selected data source buttons with their names on it.
+3. The icon indicator next to the data source button can have the following states:
 
-<div align="right">(<a href="#top">back to top</a>)</div>
+- Unsupported: The data source is not supported on the current device or Android version.
+- Permissions: The data source requires additional permissions.
+- Can Start: The data source is ready to be started. To start it press the button with the data
+  source name.
+- Success/Failure: The data source has finished successfully or with an error.
+
+3. Click on _Copy_ to export the data to the device's storage.
+4. Access the exported data in the selected folder on your device.
+
+<img src="Screenshots/1.png" alt="Screenshot 1" width="200">
+<img src="Screenshots/2.png" alt="Screenshot 2" width="200">
+<img src="Screenshots/3.png" alt="Screenshot 3" width="200">
+<img src="Screenshots/4.png" alt="Screenshot 4" width="200">
+<img src="Screenshots/5.png" alt="Screenshot 5" width="200">
+<img src="Screenshots/6.png" alt="Screenshot 6" width="200">
 
 ## Roadmap
 
