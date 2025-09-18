@@ -31,13 +31,11 @@
 ## About The Project
 
 <div align="center">
-<img src="Screenshots/UI-Screenshot.png" alt="Screenshot"  width="300">
-</div>
-
+<img src="Screenshots/UI-Screenshot.png" alt="Screenshot"  width="300"><br>
 <a href="https://github.com/flxholle/ForensicEye/releases/latest">
 <img src="Screenshots/Get It On GitHub.png" alt="Get It On GitHub" width="200">
 </a>
-
+</div>
 
 ForensicEye is a tool for non-root forensic data acquisition on Android devices. Unlike traditional
 approaches that rely on ADB or root access, ForensicEye operates directly on the device, enabling
@@ -100,7 +98,23 @@ data extraction by non-expert users without the need for additional hardware.
 3. Click on _Copy_ to export the data to the device's storage.
 4. Access the exported data in the selected folder on your device.
 
-<img src="Screenshots/1.png" alt="Screenshot 1" width="200"><img src="Screenshots/2.png" alt="Screenshot 2" width="200"><img src="Screenshots/3.png" alt="Screenshot 3" width="200"><img src="Screenshots/4.png" alt="Screenshot 4" width="200"><img src="Screenshots/5.png" alt="Screenshot 5" width="200"><img src="Screenshots/6.png" alt="Screenshot 6" width="200">
+<img src="Screenshots/1.png" alt="Screenshot 1" width="200"><img src="Screenshots/2.png" alt="Screenshot 2" width="200"><img src="Screenshots/3.png" alt="Screenshot 3" width="200"><img src="Screenshots/4.png" alt="Screenshot 4" width="200"><img src="Screenshots/5.png" alt="Screenshot 5" width="200"><img src="Screenshots/6.png" alt="Screenshot 6" width="200"><img src="Screenshots/7.png" alt="Screenshot 6" width="200">
+
+### Auto-Run from PC
+
+ForensicEye can be started automatically from a connected PC using the `auto_run.sh` script. This
+script downloads and installs the APK, launches the app and runs a specific view to start data
+collection. After data collection is complete the script pulls the exported data to the PC.
+
+1. Make sure you have `adb` installed and your device connected with USB debugging enabled.
+2. Download the
+   `auto_run.sh` [script](https://raw.githubusercontent.com/flxholle/ForensicEye/refs/heads/main/auto_run.sh)
+   and run it in a terminal.
+3. The script will handle the rest. The extracted data is in a director named `ForensicEyeData` in
+   the
+   current working directory.
+
+<img src="Screenshots/Auto-Run.png" alt="Auto Run" width="200">
 
 ## Roadmap
 
