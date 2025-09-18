@@ -48,34 +48,42 @@ import com.flxholle.forensiceye.R
  * Composable function to display the title bar with the app icon.
  *
  * @param modifier Modifier to be applied to the Row layout.
+ * @param text1 The first part of the title text (e.g., "Forensic").
+ * @param text2 The second part of the title text (e.g., "Eye").
  * @param appIcon ImageBitmap representing the app icon.
  */
 @Composable
-fun TitleBar(modifier: Modifier = Modifier, appIcon: ImageBitmap) {
+fun TitleBar(modifier: Modifier = Modifier, text1: String, text2: String, appIcon: ImageBitmap) {
     Row(
         modifier = modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Column(modifier = Modifier.weight(1f), verticalArrangement = Arrangement.Bottom) {
+            val autoSize = TextAutoSize.StepBased(
+                minFontSize = 24.sp,
+                maxFontSize = 48.sp,
+                stepSize = 2.sp
+            )
+
             // Display the "Forensic" text with custom font and style
             Text(
-                text = stringResource(R.string.forensic),
+                text = text1,
                 fontFamily = FontFamily(Font(R.font.rubikglitch, FontWeight.Normal)),
-                fontSize = 48.sp,
                 modifier = Modifier
                     .height(54.dp),
                 style = MaterialTheme.typography.headlineLarge,
+                autoSize = autoSize
             )
             // Display the "Eye" text with custom font and style, aligned to the end
             Text(
-                text = stringResource(R.string.eye),
+                text = text2,
                 fontFamily = FontFamily(Font(R.font.aldrich, FontWeight.Normal)),
-                fontSize = 48.sp,
                 modifier = Modifier
                     .height(54.dp)
                     .fillMaxWidth(),
                 style = MaterialTheme.typography.headlineLarge,
-                textAlign = TextAlign.End
+                textAlign = TextAlign.End,
+                autoSize = autoSize
             )
         }
         // Display the app icon image

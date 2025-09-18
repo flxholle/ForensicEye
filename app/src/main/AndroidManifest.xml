@@ -67,7 +67,6 @@
     <uses-permission android:name="android.permission.health.READ_HYDRATION" />
     <uses-permission android:name="android.permission.health.READ_INTERMENSTRUAL_BLEEDING" />
     <uses-permission android:name="android.permission.health.READ_LEAN_BODY_MASS" />
-    <uses-permission android:name="android.permission.health.WRITE_MENSTRUATION" />
     <uses-permission android:name="android.permission.health.READ_MENSTRUATION" />
     <uses-permission android:name="android.permission.health.READ_NUTRITION" />
     <uses-permission android:name="android.permission.health.READ_OVULATION_TEST" />
@@ -113,6 +112,12 @@
                 <category android:name="android.intent.category.HEALTH_PERMISSIONS" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".AutoRunActivity"
+            android:exported="true"
+            android:label="@string/auto_run"
+            android:theme="@style/Theme.ForensicEye"></activity>
 
         <provider
             android:name="rikka.shizuku.ShizukuProvider"

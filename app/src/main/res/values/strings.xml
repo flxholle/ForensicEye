@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">ForensicEye</string>
+    <string name="auto_run">Auto Run</string>
     <string name="image">Image</string>
     <string name="eye">EYE</string>
     <string name="forensic">FORENSIC</string>
@@ -29,4 +30,5 @@
     <string name="query_all_permissions">Query all permissions</string>
     <string name="run_all">Run all</string>
     <string name="grant_all_permissions_using_shizuku_experimental">Grant all permissions using Shizuku (experimental)</string>
+    <string name="missing_permissions">Missing permissions:\n%s</string>
 </resources>

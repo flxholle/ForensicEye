@@ -1,6 +1,3 @@
-[#top]
-
-<br />
 <div align="center">
   <a href="https://github.com/flxholle/ForensicEye">
     <img src="app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" alt="Logo" width="80" height="80"> </a>
@@ -18,19 +15,15 @@
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
-        <li><a href="#built-with">Built With</a></li>
         <li><a href="#features">Features</a></li>
         <li><a href="#limitations">Limitations</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
+    <ul>
+        <li><a href="#auto-run-from-pc>Auto-Run from PC</a></li>
+    </ul>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -41,9 +34,11 @@
 ## About The Project
 
 <div align="center">
-<img src="UI-Screenshot.png" alt="Screenshot"  width="300">
+<img src="Screenshots/UI-Screenshot.png" alt="Screenshot"  width="300"><br>
+<a href="https://github.com/flxholle/ForensicEye/releases/latest">
+<img src="Screenshots/Get It On GitHub.png" alt="Get It On GitHub" width="200">
+</a>
 </div>
-
 
 ForensicEye is a tool for non-root forensic data acquisition on Android devices. Unlike traditional
 approaches that rely on ADB or root access, ForensicEye operates directly on the device, enabling
@@ -60,8 +55,11 @@ data extraction by non-expert users without the need for additional hardware.
     - Calls
     - Calendars
     - Health data
-    - Usage statistics
+  - Usage Statistics
+  - Many more...
 - **Modular Architecture**: Supports extensibility and maintainability.
+- **Auto-Run from PC**: Ability to be launched automatically using a script for streamlined data
+  collection.
 
 ### Limitations
 
@@ -70,49 +68,64 @@ data extraction by non-expert users without the need for additional hardware.
 - **Fragmented Environment**: Challenges posed by Android’s fragmented and evolving environment,
   including undocumented features and unstable APIs.
 - **Manual Validation**: The need for manual validation due to the evolving nature of Android APIs.
+- **Usage Statistics Source**: The usage statistics data source relies on GPLv3 code
+  from [UsageDirect](https://codeberg.org/fynngodau/usageDirect) and is available in
+  a [GPLv3 licensed branch](https://github.com/flxholle/ForensicEye/tree/usage-stats-gpl)
 
 ### Built With
 
-* [![Kotlin](Kotlin-Badge.svg)](https://kotlinlang.org/)
-* [![Jetpack Compose](Jetpack%20Compose-Badge.svg)](https://developer.android.com/jetpack/compose)
-* [![Android Studio](Android%20Studio-Badge.svg)](https://developer.android.com/studio)
+* [![Kotlin](Screenshots/Kotlin-Badge.svg)](https://kotlinlang.org/)
+* [![Jetpack Compose](Screenshots/Jetpack%20Compose-Badge.svg)](https://developer.android.com/jetpack/compose)
+* [![Android Studio](Screenshots/Android%20Studio-Badge.svg)](https://developer.android.com/studio)
 
 
 <div align="right">(<a href="#top">back to top</a>)</div>
 
-## Getting Started
-
-To get a local copy up and running follow these simple steps.
-
-### Prerequisites
-
-* [Android Studio](https://developer.android.com/studio)
-* Android device or emulator (integrated in Android Studio)
-
-### Installation
-
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/flxholle/ForensicEye
-   ```
-2. Open the project in Android Studio.
-3. Build and run the project on your Android device.
-
-<div align="right">(<a href="#top">back to top</a>)</div>
 
 ## Usage
 
-1. Launch the ForensicEye app on your Android device.
-2. Follow the on-screen instructions to grant necessary permissions.
-3. Use the provided buttons to extract and view data.
+1. Download and Install the latest APK from
+   the [releases page](https://github.com/flxholle/ForensicEye/releases/latest) or use the
+   `auto_run.sh` script.
+2. Open the app and grant the necessary permissions, either by clicking "Grant all permissions" or
+   clicking selected data source buttons with their names on it. If `Shizuku` is installed and
+   running all permissions can be granted at once.
+3. The icon indicator next to the data source button can have the following states:
 
-<div align="right">(<a href="#top">back to top</a>)</div>
+- Unsupported: The data source is not supported on the current device or Android version.
+- Permissions: The data source requires additional permissions.
+- Can Start: The data source is ready to be started. To start it press the button with the data
+  source name.
+- Success/Failure: The data source has finished successfully or with an error.
+
+3. Click on _Copy_ to export the data to the device's storage.
+4. Access the exported data in the selected folder on your device.
+
+<img src="Screenshots/1.png" alt="Screenshot 1" width="200"><img src="Screenshots/2.png" alt="Screenshot 2" width="200"><img src="Screenshots/3.png" alt="Screenshot 3" width="200"><img src="Screenshots/4.png" alt="Screenshot 4" width="200"><img src="Screenshots/5.png" alt="Screenshot 5" width="200"><img src="Screenshots/6.png" alt="Screenshot 6" width="200"><img src="Screenshots/7.png" alt="Screenshot 6" width="200">
+
+### Auto-Run from PC
+
+ForensicEye can be started automatically from a connected PC using the `auto_run.sh` script. This
+script downloads and installs the APK, launches the app and runs a specific view to start data
+collection. After data collection is complete the script pulls the exported data to the PC.
+
+1. Make sure you have `adb` installed and your device connected with USB debugging enabled.
+2. Download the
+   `auto_run.sh` [script](https://raw.githubusercontent.com/flxholle/ForensicEye/refs/heads/main/auto_run.sh)
+   and run it in a terminal.
+3. The script will handle the rest. The extracted data is in a director named `ForensicEyeData` in
+   the
+   current working directory.
+
+<img src="Screenshots/Auto-Run.png" alt="Auto Run" width="200">
 
 ## Roadmap
 
-- [ ] Set as default SMS or phone app
-- [ ] Shizuku integration
-- [ ] Implement device owner
+- [ ] Set as default SMS or phone app to access BlockedNumbers
+- [ ] Shizuku integration to access system only APIs
+- [ ] Implement device owner to bypass restrictions
+- [ ] Add more data sources (e.g., third-party apps) via Acessibility Services
+- [ ] Encrypt the extracted data before storing them in the app internal directory
 
 <div align="right">(<a href="#top">back to top</a>)</div>
 
@@ -121,7 +134,7 @@ To get a local copy up and running follow these simple steps.
 Felix Hollederer - [@flxholle](https://flxholle.gitlab.io/) - flxholle@posteo.com
 
 Project
-Link: https://github.com/flxholle/ForensicEye](https://github.com/flxholle/ForensicEye)
+Link: [https://github.com/flxholle/ForensicEye](https://github.com/flxholle/ForensicEye)
 
 <div align="right">(<a href="#top">back to top</a>)</div>
 
