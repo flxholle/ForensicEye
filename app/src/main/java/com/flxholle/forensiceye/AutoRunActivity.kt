@@ -25,6 +25,7 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
@@ -60,6 +61,9 @@ import com.flxholle.forensiceye.ui.Text
 import com.flxholle.forensiceye.ui.TitleBar
 import com.flxholle.forensiceye.ui.theme.ForensicEyeTheme
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import java.io.File
 import java.io.IOException
 import java.io.OutputStreamWriter
@@ -152,6 +156,8 @@ class AutoRunActivity : ComponentActivity() {
                                     for (j in 0..2) {
                                         val index = i * 3 + j
                                         if (index < dataSources.size) {
+
+                                            // Handle each data source
                                             val dataSource = dataSources[index]
                                             val state = remember {
                                                 mutableStateOf(
@@ -165,6 +171,8 @@ class AutoRunActivity : ComponentActivity() {
                                                     }
                                                 )
                                             }
+
+                                            //Auto run the data source if it is in the START state
                                             if (state.value == STATE.START) {
                                                 state.value = STATE.RUNNING
                                                 val thread = Thread {
@@ -184,7 +192,6 @@ class AutoRunActivity : ComponentActivity() {
                                                     }
                                                 }
                                                 threads.add(thread)
-                                                thread.start()
                                             }
 
                                             DataSourceUIAutoRun(
@@ -205,32 +212,40 @@ class AutoRunActivity : ComponentActivity() {
                                 }
                             }
 
-                            Thread {
-                                for (t in threads) {
-                                    t.join()
-                                }
-                                val externalFile =
-                                    File(context.getExternalFilesDir(null), "finished_auto_run.txt")
-                                val fileUri = Uri.fromFile(externalFile)
-                                try {
-                                    context.contentResolver.openOutputStream(fileUri)
-                                        ?.use { outputStream ->
-                                            OutputStreamWriter(outputStream).use { writer ->
-                                                writer.append("Auto Run Finished")
+                            LaunchedEffect(0) {
+                                CoroutineScope(Dispatchers.IO).launch {
+                                    for (t in threads) {
+                                        t.start()
+                                    }
+                                    for (t in threads) {
+                                        t.join()
+                                    }
+                                    val externalFile =
+                                        File(
+                                            context.getExternalFilesDir(null),
+                                            "finished_auto_run.txt"
+                                        )
+                                    val fileUri = Uri.fromFile(externalFile)
+                                    try {
+                                        context.contentResolver.openOutputStream(fileUri)
+                                            ?.use { outputStream ->
+                                                OutputStreamWriter(outputStream).use { writer ->
+                                                    writer.append("Auto Run Finished")
+                                                }
                                             }
-                                        }
-                                    Log.d(
-                                        "AutoRunActivity",
-                                        "Auto Run Finished file created successfully at $fileUri"
-                                    )
-                                } catch (e: IOException) {
-                                    Log.e(
-                                        "AutoRunActivity",
-                                        "Error writing Auto Run Finished file at $fileUri",
-                                        e
-                                    )
+                                        Log.d(
+                                            "AutoRunActivity",
+                                            "Auto Run Finished file created successfully at $fileUri"
+                                        )
+                                    } catch (e: IOException) {
+                                        Log.e(
+                                            "AutoRunActivity",
+                                            "Error writing Auto Run Finished file at $fileUri",
+                                            e
+                                        )
+                                    }
                                 }
-                            }.start()
+                            }
                         }
                     }
                 }
