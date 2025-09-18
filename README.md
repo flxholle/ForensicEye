@@ -54,6 +54,7 @@ data extraction by non-expert users without the need for additional hardware.
     - Calls
     - Calendars
     - Health data
+  - Usage Statistics
   - Many more...
 - **Modular Architecture**: Supports extensibility and maintainability.
 - **Auto-Run from PC**: Ability to be launched automatically using a script for streamlined data
@@ -66,6 +67,9 @@ data extraction by non-expert users without the need for additional hardware.
 - **Fragmented Environment**: Challenges posed by Android’s fragmented and evolving environment,
   including undocumented features and unstable APIs.
 - **Manual Validation**: The need for manual validation due to the evolving nature of Android APIs.
+- **Usage Statistics Source**: The usage statistics data source relies on GPLv3 code
+  from [UsageDirect](https://codeberg.org/fynngodau/usageDirect) and is available in
+  a [GPLv3 licensed branch](https://github.com/flxholle/ForensicEye/tree/usage-stats-gpl)
 
 ### Built With
 
@@ -83,7 +87,8 @@ data extraction by non-expert users without the need for additional hardware.
    the [releases page](https://github.com/flxholle/ForensicEye/releases/latest) or use the
    `auto_run.sh` script.
 2. Open the app and grant the necessary permissions, either by clicking "Grant all permissions" or
-   clicking selected data source buttons with their names on it.
+   clicking selected data source buttons with their names on it. If `Shizuku` is installed and
+   running all permissions can be granted at once.
 3. The icon indicator next to the data source button can have the following states:
 
 - Unsupported: The data source is not supported on the current device or Android version.
@@ -95,12 +100,7 @@ data extraction by non-expert users without the need for additional hardware.
 3. Click on _Copy_ to export the data to the device's storage.
 4. Access the exported data in the selected folder on your device.
 
-<img src="Screenshots/1.png" alt="Screenshot 1" width="200">
-<img src="Screenshots/2.png" alt="Screenshot 2" width="200">
-<img src="Screenshots/3.png" alt="Screenshot 3" width="200">
-<img src="Screenshots/4.png" alt="Screenshot 4" width="200">
-<img src="Screenshots/5.png" alt="Screenshot 5" width="200">
-<img src="Screenshots/6.png" alt="Screenshot 6" width="200">
+<img src="Screenshots/1.png" alt="Screenshot 1" width="200"><img src="Screenshots/2.png" alt="Screenshot 2" width="200"><img src="Screenshots/3.png" alt="Screenshot 3" width="200"><img src="Screenshots/4.png" alt="Screenshot 4" width="200"><img src="Screenshots/5.png" alt="Screenshot 5" width="200"><img src="Screenshots/6.png" alt="Screenshot 6" width="200">
 
 ## Roadmap
 
